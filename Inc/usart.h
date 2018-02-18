@@ -65,6 +65,11 @@ extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN Private defines */
 
+#define BAUDRATE				115200
+#define UART_PRIORITY			6
+#define UART_RX_SUBPRIORITY		0
+#define UART_TX_SUBPRIORITY		0
+
 /* USER CODE END Private defines */
 
 extern void _Error_Handler(char *, int);

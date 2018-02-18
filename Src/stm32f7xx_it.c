@@ -43,6 +43,8 @@
 /* External variables --------------------------------------------------------*/
 
 extern TIM_HandleTypeDef htim1;
+extern DMA_HandleTypeDef hdma_usart1_rx;
+extern DMA_HandleTypeDef hdma_usart1_tx;
 
 /******************************************************************************/
 /*            Cortex-M7 Processor Interruption and Exception Handlers         */ 
@@ -182,6 +184,19 @@ void TIM1_UP_TIM10_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+
+//uart rx interrupt
+
+void DMA2_Stream2_IRQHandler(void){
+	HAL_NVIC_ClearPendingIRQ(DMA2_Stream2_IRQn);
+	HAL_DMA_IRQHandler(&hdma_usart1_rx);
+}
+
+//uart tx interrupt
+void DMA2_Stream7_IRQHandler(void){
+	HAL_NVIC_ClearPendingIRQ(DMA2_Stream7_IRQn);
+	HAL_DMA_IRQHandler(&hdma_usart1_tx);
+}
 
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
