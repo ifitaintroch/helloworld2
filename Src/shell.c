@@ -46,7 +46,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 	//check for enter and execute command
 
 	else if (rx_buffer == '\n' || rx_buffer == '\r'){
-		shell_execute(rx_string);
+		shell_execute(rx_string, rx_index);
 		rx_index = 0;
 		for (i=0; i < SHELL_MAXSTRLEN; i++) rx_string[i]=0;
 	}
@@ -70,8 +70,15 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart){
 	print("\r\n[ERROR] Serial error");
 }
 
-void shell_execute(uint8_t string[]){
+void shell_execute(uint8_t string[], int length){
 
+}
+
+struct argument * shell_parse_command(uint8_t *string[], int *length){
+
+	for (int i = 0; i <= (*length); i++){
+
+	}
 }
 
 
