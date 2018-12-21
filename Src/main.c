@@ -101,6 +101,9 @@ int main(void)
 	/* Start scheduler */
 	osKernelStart();
   
+	/* Start the shell */
+	shell_init();
+
 	/* We should never get here as control is now taken by the scheduler */
 
 	while (1){
